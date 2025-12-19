@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   plugins: [react()],
   publicDir: "./static",
-  base: "/Morph/",
+  base: "./",
   css: {
     postcss: {
       plugins: [tailwind()],

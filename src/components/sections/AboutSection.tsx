@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import officeVideo from '../../assets/Lanzamiento_Transformación (1).mp4';
+import officeVideo from '../../assets/office_launch.mp4';
 
 export default function AboutSection() {
   const ref = useRef(null);

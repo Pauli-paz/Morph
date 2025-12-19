@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import corporateVideo from '../../assets/Juegos Corporativos.mp4';
+import corporateVideo from '../../assets/corporate_games.mp4';
 
 const projects = [
   {
