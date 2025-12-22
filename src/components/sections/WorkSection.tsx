@@ -78,9 +78,12 @@ export default function WorkSection() {
             >
               {/* Content - Single Card Focused on Results */}
               <div className="max-w-4xl mx-auto">
-                <div className="h-full border-2 border-dashed border-primary/50 rounded-2xl p-8 md:p-12 bg-neutral-900/80 relative">
+                <div className="h-full border border-primary/10 rounded-2xl p-8 md:p-12 bg-white shadow-2xl relative overflow-hidden">
+                  {/* Decorative background accent */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
                   {/* Logo centered at top */}
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white p-4 rounded-full border border-primary/20 shadow-xl">
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white p-4 rounded-full border border-primary/10 shadow-lg z-10">
                     <img
                       src={logoC48}
                       alt={currentCase.clientName}
@@ -88,26 +91,35 @@ export default function WorkSection() {
                     />
                   </div>
 
-                  <div className="mt-8 text-center">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  <div className="mt-8 text-center relative z-10">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                       {currentCase.clientName}
                     </h3>
-                    <p className="text-primary font-medium uppercase tracking-wider text-sm mb-8">
+                    <p className="text-primary font-bold uppercase tracking-widest text-xs md:text-sm mb-10">
                       Caso de Éxito
                     </p>
 
-                    <h4 className="text-xl md:text-2xl font-bold text-foreground mb-8">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-800 mb-8 max-w-2xl mx-auto leading-tight">
                       {currentCase.results.title}
                     </h4>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                       {currentCase.results.metrics.map((metric, idx) => (
-                        <div key={idx} className="flex gap-3 items-start bg-neutral-800 p-4 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                          <p className="text-sm md:text-base text-foreground/90 font-light">
-                            <span className="font-bold text-primary block text-lg">{metric.value}</span> {metric.label}
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+                          viewport={{ once: true }}
+                          className="flex gap-4 items-start bg-neutral-50 p-5 rounded-xl border border-transparent hover:border-primary/20 hover:bg-primary/5 transition-colors group"
+                        >
+                          <div className="bg-white p-2 rounded-full shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          </div>
+                          <p className="text-sm md:text-base text-gray-600 font-light leading-snug">
+                            <span className="font-bold text-primary block text-xl mb-1">{metric.value}</span> {metric.label}
                           </p>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
