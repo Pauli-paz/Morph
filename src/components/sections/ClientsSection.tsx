@@ -142,7 +142,7 @@ export default function ClientsSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-12 md:mt-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <p className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
                 <CountingNumber value={140} suffix="+" />
@@ -153,23 +153,15 @@ export default function ClientsSection() {
             </div>
             <div className="text-center">
               <p className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-                <CountingNumber value={98} suffix="%" />
+                <CountingNumber value={8} suffix=".4" />
               </p>
               <p className="text-sm text-muted-foreground font-light">
-                Satisfacción
+                NPS
               </p>
             </div>
             <div className="text-center">
               <p className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-                <CountingNumber value={15} suffix="+" />
-              </p>
-              <p className="text-sm text-muted-foreground font-light">
-                Años de Experiencia
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-                <CountingNumber value={500} suffix="+" />
+                <CountingNumber value={1000} suffix="+" />
               </p>
               <p className="text-sm text-muted-foreground font-light">
                 Proyectos Completados
