@@ -20,14 +20,54 @@ const allLoadedClients = Object.entries(logoModules)
   })
   .sort((a, b) => a.number - b.number);
 
-// Split clients for two rows
-const midPoint = Math.ceil(allLoadedClients.length / 2);
-const row1Clients = allLoadedClients.slice(0, midPoint);
-const row2Clients = allLoadedClients.slice(midPoint);
+// Split clients into 4 rows for better density
+const quarterPoint = Math.ceil(allLoadedClients.length / 4);
+const row1Clients = allLoadedClients.slice(0, quarterPoint);
+const row2Clients = allLoadedClients.slice(quarterPoint, quarterPoint * 2);
+const row3Clients = allLoadedClients.slice(quarterPoint * 2, quarterPoint * 3);
+const row4Clients = allLoadedClients.slice(quarterPoint * 3);
 
-// Duplicate for seamless loop
-const row1Display = [...row1Clients, ...row1Clients, ...row1Clients, ...row1Clients];
-const row2Display = [...row2Clients, ...row2Clients, ...row2Clients, ...row2Clients];
+// Duplicate for seamless loop - ensuring enough items for smooth scroll
+const row1Display = [...row1Clients, ...row1Clients, ...row1Clients, ...row1Clients, ...row1Clients];
+const row2Display = [...row2Clients, ...row2Clients, ...row2Clients, ...row2Clients, ...row2Clients];
+const row3Display = [...row3Clients, ...row3Clients, ...row3Clients, ...row3Clients, ...row3Clients];
+const row4Display = [...row4Clients, ...row4Clients, ...row4Clients, ...row4Clients, ...row4Clients];
+
+// Helper to render a generic logo row
+const LogoRow = ({ clients, direction = 'left', duration = 30 }: { clients: typeof row1Clients, direction?: 'left' | 'right', duration?: number }) => (
+  <div className="relative mb-4 overflow-hidden">
+    <motion.div
+      className="flex gap-4"
+      animate={{
+        x: direction === 'left' ? [0, -1500] : [-1500, 0],
+      }}
+      transition={{
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: duration,
+          ease: "linear",
+        },
+      }}
+    >
+      {clients.map((client, index) => (
+        <div
+          key={`${client.name}-${index}`}
+          className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 hover:border-primary/20 flex items-center justify-center group"
+        >
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </motion.div>
+  </div>
+);
 
 const CountingNumber = ({ value, suffix = '', duration = 2 }: { value: number; suffix?: string; duration?: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -78,91 +118,19 @@ export default function ClientsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 md:mb-10"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block mb-3"
-          >
-            <span className="text-primary font-medium text-sm uppercase tracking-wider">
-              Nuestros Clientes
-            </span>
-          </motion.div>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            Confían en Nosotros
-          </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto font-light">
-            Más de 40 empresas líderes en Argentina confían en nuestros servicios
+          {/* Removed Title as requested */}
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+            Más de 140 empresas confían en nosotros en la región.
           </p>
         </motion.div>
 
-        {/* Infinite Scrolling Carousel - Row 1 */}
-        <div className="relative mb-4 overflow-hidden">
-          <motion.div
-            className="flex gap-4"
-            animate={{
-              x: [0, -1500], // Adjusted for length
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30, // Faster duration (was 50)
-                ease: "linear",
-              },
-            }}
-          >
-            {row1Display.map((client, index) => (
-              <div
-                key={`row1-${index}-${client.number}`}
-                className="flex-shrink-0 w-40 h-24 bg-white rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 hover:border-primary/20 flex items-center justify-center group"
-              >
-                <div className="relative w-full h-full flex items-center justify-center p-4">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+        {/* 4 Lines of Rotating Logos */}
+        <LogoRow clients={row1Display} direction="left" duration={35} />
+        <LogoRow clients={row2Display} direction="right" duration={38} />
+        <LogoRow clients={row3Display} direction="left" duration={42} />
+        <LogoRow clients={row4Display} direction="right" duration={32} />
 
-        {/* Infinite Scrolling Carousel - Row 2 (Reverse) */}
-        <div className="relative overflow-hidden">
-          <motion.div
-            className="flex gap-4"
-            animate={{
-              x: [-1500, 0],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 35, // Faster duration (was 55)
-                ease: "linear",
-              },
-            }}
-          >
-            {row2Display.map((client, index) => (
-              <div
-                key={`row2-${index}-${client.number}`}
-                className="flex-shrink-0 w-40 h-24 bg-white rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 hover:border-primary/20 flex items-center justify-center group"
-              >
-                <div className="relative w-full h-full flex items-center justify-center p-4">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+
 
         {/* Stats Section */}
         <motion.div
@@ -174,7 +142,7 @@ export default function ClientsSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center">
               <p className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-                <CountingNumber value={40} suffix="+" />
+                <CountingNumber value={140} suffix="+" />
               </p>
               <p className="text-sm text-muted-foreground font-light">
                 Empresas Clientes
