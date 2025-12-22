@@ -18,9 +18,9 @@ export default function OfficeLocationsSection() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     return (
-        <section className="py-20 bg-[#8c52ff] relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-[#8c52ff] relative overflow-hidden">
             {/* Background World Map Overlay */}
-            <div className="absolute inset-0 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-no-repeat bg-cover pointer-events-none mix-blend-overlay"></div>
+            <div className="absolute inset-0 opacity-25 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-no-repeat bg-cover pointer-events-none mix-blend-overlay"></div>
 
             <div className="container mx-auto px-6 md:px-10 relative z-10 text-center">
                 <motion.div
