@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } from 'lucide-react';
 import logoC48 from '../../assets/C48.svg';
@@ -78,6 +78,14 @@ export default function WorkSection() {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + cases.length) % cases.length);
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [currentIndex]); // Re-run effect when index changes to reset timer prevents rapid skipping if user clicks manually
 
   const currentCase = cases[currentIndex];
 
