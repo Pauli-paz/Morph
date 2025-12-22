@@ -2,14 +2,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const locations = [
-    "Buenos Aires · Argentina",
+"Buenos Aires · Argentina",
     "Asunción · Paraguay",
     "Quito · Ecuador",
     "Montevideo · Uruguay",
-    "Bogotá · Colombia",
     "Santo Domingo · Rep. Dominicana",
-    "Santiago · Chile",
     "Madrid · España",
     "Miami · EEUU",
     "Ciudad de México · México"
@@ -31,12 +28,10 @@ export default function OfficeLocationsSection() {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-                        Tenemos oficinas y equipo en:
+                    <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-white">
+                        Tenemos presencia en:
                     </h2>
-                    <p className="text-lg md:text-xl font-light mb-12 max-w-4xl mx-auto opacity-90 text-white">
-                        Hoy tenemos fuerte presencia LATAM y hemos dado nuestros primeros pasos en Estados Unidos y España
-                    </p>
+                    {/* Subtitle removed as requested */}
 
                     <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-base md:text-lg font-medium tracking-wide leading-relaxed max-w-6xl mx-auto">
                         {locations.map((loc, index) => (
