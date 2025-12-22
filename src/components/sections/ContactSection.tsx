@@ -38,16 +38,7 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block mb-4"
-          >
-            <span className="text-primary font-medium text-sm uppercase tracking-wider">
-              Contacto
-            </span>
-          </motion.div>
+
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             Contáctanos
           </h2>
