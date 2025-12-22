@@ -118,7 +118,10 @@ export default function ClientsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 md:mb-10"
         >
-          {/* Removed Title as requested */}
+          {/* H2 Title Restored */}
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            Confían en Nosotros
+          </h2>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
             Más de 140 empresas confían en nosotros en la región.
           </p>
