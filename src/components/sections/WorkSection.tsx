@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } f
 import logoC48 from '../../assets/C48.svg';
 import logoC21 from '../../assets/C21.svg';
 import logoC32 from '../../assets/C32.svg';
+import logoC36 from '../../assets/C36.svg';
 
 const cases = [
   {
@@ -86,6 +87,27 @@ const cases = [
         { value: '8', label: 'Videos de alto impacto con contenido educativo para el programa de onboarding a la agilidad.' },
         { value: '+90%', label: 'De la organización realizó el proceso de onboarding a la agilidad (nivel 1).' },
         { value: '+90%', label: 'De índice de satisfacción con los materiales educativos entregados.' }
+      ],
+      icon: Trophy
+    }
+  },
+  {
+    id: 'c36',
+    client: 'C36',
+    clientName: 'Cliente Industrial', // Placeholder. Logo C36. Image has pipes/industry background. "líderes preparados para liderar equipos remotos", "barreras generacionales".
+    clientName: 'Industria Energética', // Placeholder based on pipes background
+    logoFallback: 'C36',
+    logo: logoC36,
+    problem: { title: '', description: '', icon: HelpCircle },
+    solution: { title: '', steps: [], icon: Puzzle },
+    results: {
+      title: 'Lo que logramos en 8 meses',
+      metrics: [
+        { value: '+ 20', label: 'píldoras de aprendizaje genérico y técnico.' },
+        { value: '+ 100', label: 'líderes preparados para liderar equipos remotos.' },
+        { value: '+ 500', label: 'miembros rompiendo barreras generacionales en esquemas gamificados.' },
+        { value: '8', label: 'proyectos estratégicos aplicando metodologías híbridas.' },
+        { value: '92%', label: 'satisfacción NPS' }
       ],
       icon: Trophy
     }
