@@ -5,6 +5,7 @@ import logoC48 from '../../assets/C48.svg';
 import logoC21 from '../../assets/C21.svg';
 import logoC32 from '../../assets/C32.svg';
 import logoC36 from '../../assets/C36.svg';
+import logoC59 from '../../assets/C59.svg';
 
 const cases = [
   {
@@ -108,6 +109,26 @@ const cases = [
         { value: '+ 500', label: 'miembros rompiendo barreras generacionales en esquemas gamificados.' },
         { value: '8', label: 'proyectos estratégicos aplicando metodologías híbridas.' },
         { value: '92%', label: 'satisfacción NPS' }
+      ],
+      icon: Trophy
+    }
+  },
+  {
+    id: 'c59',
+    client: 'C59',
+    clientName: 'Industria Aeronáutica', // Placeholder based on airplane wing background
+    logoFallback: 'C59',
+    logo: logoC59,
+    problem: { title: '', description: '', icon: HelpCircle },
+    solution: { title: '', steps: [], icon: Puzzle },
+    results: {
+      title: 'Lo que logramos en 5 meses',
+      metrics: [
+        { value: '+ 80', label: 'Personas capacitadas en mentalidad y marcos de trabajo ágil (Directores, Gerentes y mandos medios).' },
+        { value: '+ 60', label: 'embajadores de cambio de agilidad apalancando el cambio cultural.' },
+        { value: '7', label: 'Células de trabajo activas y acompañadas bajo metodologías ágiles.' },
+        { value: '1', label: 'Tablero OKR alineado a la evolución y targets de negocio.' },
+        { value: '+ 20', label: 'líderes preparados para asegurar contextos ágiles orientados al negocio.' }
       ],
       icon: Trophy
     }
