@@ -75,86 +75,42 @@ export default function WorkSection() {
               transition={{ duration: 0.5 }}
               className="bg-card/50 backdrop-blur-sm border border-white/5 rounded-3xl p-6 md:p-12 shadow-2xl"
             >
-              {/* Client Header */}
-              <div className="flex flex-col items-center mb-12">
-                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 text-neutral-900 font-bold text-xl border-4 border-primary/20">
-                  {currentCase.logoFallback}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center">
-                  {currentCase.clientName}
-                </h3>
-              </div>
+              {/* Content - Single Card Focused on Results */}
+              <div className="max-w-4xl mx-auto">
+                <div className="h-full border-2 border-dashed border-primary/50 rounded-2xl p-8 md:p-12 bg-primary/5 relative">
+                  {/* Logo centered at top */}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white p-4 rounded-full border border-primary/20 shadow-xl">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Banco_General_Rumi%C3%B1ahui_logo.svg/2560px-Banco_General_Rumi%C3%B1ahui_logo.svg.png"
+                      alt={currentCase.clientName}
+                      className="h-12 w-auto object-contain"
+                    />
+                  </div>
 
-              {/* Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
-
-                {/* Problem Column */}
-                <div className="space-y-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center mb-4 border border-white/10">
-                      <currentCase.problem.icon className="w-8 h-8 text-white/70" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground/80 uppercase tracking-widest mb-4">
-                      {currentCase.problem.title}
-                    </h4>
-                    <p className="text-muted-foreground leading-relaxed font-light">
-                      {currentCase.problem.description}
+                  <div className="mt-8 text-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                      {currentCase.clientName}
+                    </h3>
+                    <p className="text-primary font-medium uppercase tracking-wider text-sm mb-8">
+                      Caso de Éxito
                     </p>
-                  </div>
-                </div>
 
-                {/* Solution Column */}
-                <div className="space-y-6 relative">
-                  {/* Divider for mobile */}
-                  <div className="lg:hidden w-full h-px bg-white/10 my-8"></div>
-
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center mb-4 border border-white/10">
-                      <currentCase.solution.icon className="w-8 h-8 text-white/70" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground/80 uppercase tracking-widest mb-4">
-                      {currentCase.solution.title}
-                    </h4>
-                    <ol className="text-left space-y-4 text-muted-foreground font-light text-sm md:text-base">
-                      {currentCase.solution.steps.map((step, idx) => (
-                        <li key={idx} className="flex gap-3">
-                          <span className="font-bold text-primary/50 min-w-[1.5rem]">{idx + 1}.</span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-
-                {/* Results Column - Highlighted */}
-                <div className="space-y-6 relative">
-                  {/* Divider for mobile */}
-                  <div className="lg:hidden w-full h-px bg-white/10 my-8"></div>
-
-                  <div className="h-full border-2 border-dashed border-primary/50 rounded-2xl p-6 md:p-8 bg-primary/5 relative">
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral p-2 rounded-full border border-primary/20">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                        <currentCase.results.icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-
-                    <h4 className="text-xl font-bold text-foreground text-center mt-6 mb-8">
+                    <h4 className="text-xl md:text-2xl font-bold text-foreground mb-8">
                       {currentCase.results.title}
                     </h4>
 
-                    <ul className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                       {currentCase.results.metrics.map((metric, idx) => (
-                        <li key={idx} className="flex gap-3 items-start">
+                        <div key={idx} className="flex gap-3 items-start bg-neutral-900/50 p-4 rounded-lg border border-white/5">
                           <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           <p className="text-sm md:text-base text-foreground/90 font-light">
-                            <span className="font-bold text-primary">{metric.value}</span> {metric.label}
+                            <span className="font-bold text-primary block text-lg">{metric.value}</span> {metric.label}
                           </p>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
-
               </div>
             </motion.div>
           </AnimatePresence>
