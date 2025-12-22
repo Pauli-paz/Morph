@@ -82,42 +82,48 @@ export default function WorkSection() {
                   {/* Decorative background accent */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                  {/* Logo centered at top */}
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white p-4 rounded-full border border-primary/10 shadow-lg z-10">
-                    <img
-                      src={logoC48}
-                      alt={currentCase.clientName}
-                      className="h-12 w-auto object-contain"
-                    />
-                  </div>
+                  <div className="relative z-10 flex flex-col items-center">
+                    {/* Logo - Natural flow */}
+                    <div className="bg-white p-4 rounded-full border border-primary/10 shadow-lg mb-8">
+                      <img
+                        src={logoC48}
+                        alt={currentCase.clientName}
+                        className="h-16 w-auto object-contain"
+                      />
+                    </div>
 
-                  <div className="mt-8 text-center relative z-10">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="hidden">
                       {currentCase.clientName}
                     </h3>
-                    <p className="text-primary font-bold uppercase tracking-widest text-xs md:text-sm mb-10">
-                      Caso de Éxito
-                    </p>
 
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-800 mb-8 max-w-2xl mx-auto leading-tight">
+                    {/* Tree Icon Header Element (as per user image) */}
+                    <div className="w-20 h-20 rounded-full bg-yellow-400/20 border-2 border-yellow-400 flex items-center justify-center mb-6 shadow-sm">
+                      <div className="text-yellow-600">
+                        {/* Simple tree/growth icon using lucide */}
+                        <Trophy className="w-10 h-10" />
+                      </div>
+                    </div>
+
+                    <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
                       {currentCase.results.title}
                     </h4>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                    {/* Vertical List */}
+                    <div className="w-full max-w-2xl mx-auto space-y-4">
                       {currentCase.results.metrics.map((metric, idx) => (
                         <motion.div
                           key={idx}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
                           viewport={{ once: true }}
-                          className="flex gap-4 items-start bg-neutral-50 p-5 rounded-xl border border-transparent hover:border-primary/20 hover:bg-primary/5 transition-colors group"
+                          className="flex gap-4 items-start p-2"
                         >
-                          <div className="bg-white p-2 rounded-full shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          <div className="mt-1 shrink-0">
+                            <CheckCircle2 className="w-6 h-6 text-cyan-500" />
                           </div>
-                          <p className="text-sm md:text-base text-gray-600 font-light leading-snug">
-                            <span className="font-bold text-primary block text-xl mb-1">{metric.value}</span> {metric.label}
+                          <p className="text-lg text-gray-700 font-light leading-snug text-left">
+                            <span className="font-bold text-cyan-600 text-xl">{metric.value}</span> {metric.label}
                           </p>
                         </motion.div>
                       ))}
