@@ -9,7 +9,7 @@ const locations = [
     "Montevideo · Uruguay",
     "Santo Domingo · Rep. Dominicana",
     "Madrid · España",
-    "Miami · EEUU",
+    "Miami · EEUU (Próximamente)",
     "Ciudad de México · México"
 ];
 
