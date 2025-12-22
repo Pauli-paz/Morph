@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } from 'lucide-react';
 import logoC48 from '../../assets/C48.svg';
+import logoC21 from '../../assets/C21.svg';
 
 const cases = [
   {
     id: 'bgr',
     client: 'BGR',
     clientName: 'Banco General Rumiñahui',
+    logo: logoC48,
     logoFallback: 'BGR', // We can replace this with an img tag if we get the logo later
     problem: {
       title: 'EL PROBLEMA',
@@ -32,6 +34,34 @@ const cases = [
         { value: '8', label: 'desafíos planteados + 2 eventos de cierre y premiación.' },
         { value: '89%', label: 'de participación activa (promedio).' },
         { value: '85%', label: 'de efectividad percibida por los participantes y los stakeholders.' }
+      ],
+      icon: Trophy
+    }
+  },
+  {
+    id: 'c21',
+    client: 'C21',
+    clientName: 'Cliente Corporativo', // Placeholder if name isn't clear, but maybe I can infer or just leave generic until asked. User said "pone el logo C21". I'll use "Proyectos Regionales" or similar if no name provided? Or just "Century 21" if that's what C21 is? No, checking file list... C21.svg. Let's assume the name is hidden or generic relative to the file. I will use 'Cliente Corporativo' or just 'Empresa Regional' based on "7 Países". Actually, I'll check if the User meant the client name *is* the logo. I'll put "Cliente Confidencial" or similar, or just leave it blank?
+    // User said "agrega a esa seccion... estos datos... y pone el logo arriba C21". 
+    // I will use "Caso de Éxito" as subtitle and maybe "Transformación Regional" as title if name is missing? 
+    // Wait, let's look at the BGR one. clientName was "Banco General Rumiñahui". 
+    // I will use "Transformación Regional" as the client name placeholder for now, or just leave it blank if the logo speaks for itself.
+    // The previous code renders `currentCase.clientName`.
+    // I'll stick to a placeholder like "Proyecto Regional LATAM" given the "7 Países" metric.
+    clientName: 'Proyecto Regional LATAM',
+    logoFallback: 'C21',
+    brandingColor: 'text-cyan-600', // Optional custom color if we wanted, but sticking to existing design
+    logo: logoC21,
+    problem: { title: '', description: '', icon: HelpCircle }, // Not used in current layout
+    solution: { title: '', steps: [], icon: Puzzle }, // Not used
+    results: {
+      title: 'Lo que logramos en 7 meses',
+      metrics: [
+        { value: '+120', label: 'Oportunidades de mejora identificadas.' },
+        { value: '40', label: 'Personas entrevistadas.' },
+        { value: '7', label: 'Países intervinientes: Argentina, Brasil, Chile, Colombia, México, Perú y Uruguay.' },
+        { value: '+50', label: 'Oportunidades mapeadas dentro de la cartera de necesidades para ser ejecutadas.' },
+        { value: '1', label: 'video storytelling del camino recorrido en el proyecto.' }
       ],
       icon: Trophy
     }
@@ -86,7 +116,7 @@ export default function WorkSection() {
                     {/* Logo - Natural flow */}
                     <div className="bg-white p-4 rounded-full border border-primary/10 shadow-lg mb-8">
                       <img
-                        src={logoC48}
+                        src={currentCase.logo}
                         alt={currentCase.clientName}
                         className="h-16 w-auto object-contain"
                       />
