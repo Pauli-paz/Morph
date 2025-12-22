@@ -188,8 +188,8 @@ export default function WorkSection() {
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
                   <div className="relative z-10 flex flex-col items-center">
-                    {/* Logo - Natural flow - Restored without shadow */}
-                    <div className="bg-white p-4 rounded-full border border-primary/10 mb-8">
+                    {/* Logo - Natural flow - Restored without shadow and stroke */}
+                    <div className="bg-white p-4 rounded-full mb-8">
                       <img
                         src={currentCase.logo}
                         alt={currentCase.clientName}
