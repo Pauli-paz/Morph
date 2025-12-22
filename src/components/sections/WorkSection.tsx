@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } from 'lucide-react';
 import logoC48 from '../../assets/C48.svg';
 import logoC21 from '../../assets/C21.svg';
+import logoC32 from '../../assets/C32.svg';
 
 const cases = [
   {
@@ -62,6 +63,29 @@ const cases = [
         { value: '7', label: 'Países intervinientes: Argentina, Brasil, Chile, Colombia, México, Perú y Uruguay.' },
         { value: '+50', label: 'Oportunidades mapeadas dentro de la cartera de necesidades para ser ejecutadas.' },
         { value: '1', label: 'video storytelling del camino recorrido en el proyecto.' }
+      ],
+      icon: Trophy
+    }
+  },
+  {
+    id: 'c32',
+    client: 'C32',
+    clientName: 'Banco Macro', // Assuming C32 is Banco Macro or similar, or just keeping it generic if unknown. User didn't specify name, just "logo C32". In the first case 'BGR' was Banco General Rumiñahui. Usually these codes match internal client IDs. I'll use "Cliente Corporativo" or similar placeholder if I can't guess. Wait, the metric says "desarrollado a medida para el Banco". So it's a Bank.
+    // I'll use "Entidad Bancaria" or "Banco Líder" as generic name, or "Banco Macro" if I want to guess, but safer to be generic or look for context.
+    // Actually, I'll stick to a descriptive title or just use "Cliente Bancario" for now.
+    clientName: 'Entidad Bancaria', // Placeholder
+    logoFallback: 'C32',
+    logo: logoC32,
+    problem: { title: '', description: '', icon: HelpCircle },
+    solution: { title: '', steps: [], icon: Puzzle },
+    results: {
+      title: 'Lo que logramos en 4 meses',
+      metrics: [
+        { value: '1', label: 'Videojuego desarrollado a medida para el Banco.' },
+        { value: '1', label: 'Línea de marca (estética, personajes y narrativa) generadas para el cliente.' },
+        { value: '8', label: 'Videos de alto impacto con contenido educativo para el programa de onboarding a la agilidad.' },
+        { value: '+90%', label: 'De la organización realizó el proceso de onboarding a la agilidad (nivel 1).' },
+        { value: '+90%', label: 'De índice de satisfacción con los materiales educativos entregados.' }
       ],
       icon: Trophy
     }
