@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-"Buenos Aires · Argentina",
+const locations = [
+    "Buenos Aires · Argentina",
     "Asunción · Paraguay",
     "Quito · Ecuador",
     "Montevideo · Uruguay",
@@ -19,7 +20,7 @@ export default function OfficeLocationsSection() {
     return (
         <section className="py-20 bg-[#8c52ff] relative overflow-hidden">
             {/* Background World Map Overlay */}
-            <div className="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-no-repeat bg-cover pointer-events-none mix-blend-overlay"></div>
+            <div className="absolute inset-0 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-no-repeat bg-cover pointer-events-none mix-blend-overlay"></div>
 
             <div className="container mx-auto px-6 md:px-10 relative z-10 text-center">
                 <motion.div
