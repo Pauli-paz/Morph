@@ -131,17 +131,7 @@ export default function ContactSection() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPinIcon className="h-6 w-6 text-primary" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground text-base mb-2">Ubicación</p>
-                    <p className="text-muted-foreground text-base font-light">
-                      Buenos Aires, Argentina
-                    </p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </motion.div>
