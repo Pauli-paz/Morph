@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BriefcaseIcon, UsersIcon, ShieldIcon, LightbulbIcon } from 'lucide-react';
+import corporateVideo from '../../assets/corporate_games.mp4';
 
 const services = [
   {
@@ -75,6 +76,28 @@ export default function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Applied Technology Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-20 max-w-5xl mx-auto text-center"
+        >
+          <h3 className="font-heading text-2xl font-bold mb-8 text-primary">
+            Tecnología Aplicada
+          </h3>
+          <div className="relative rounded-xl overflow-hidden shadow-2xl">
+            <video
+              src={corporateVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

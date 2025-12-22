@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import corporateVideo from '../../assets/corporate_games.mp4';
+
 
 const projects = [
   {
@@ -77,24 +77,7 @@ export default function WorkSection() {
           ))}
         </div>
 
-        {/* Corporate Games Video */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20 max-w-5xl mx-auto"
-        >
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            <video
-              src={corporateVideo}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
