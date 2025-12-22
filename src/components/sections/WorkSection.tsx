@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } from 'lucide-react';
+import logoC48 from '../../assets/C48.svg';
 
 const cases = [
   {
@@ -77,11 +78,11 @@ export default function WorkSection() {
             >
               {/* Content - Single Card Focused on Results */}
               <div className="max-w-4xl mx-auto">
-                <div className="h-full border-2 border-dashed border-primary/50 rounded-2xl p-8 md:p-12 bg-primary/5 relative">
+                <div className="h-full border-2 border-dashed border-primary/50 rounded-2xl p-8 md:p-12 bg-neutral-900/80 relative">
                   {/* Logo centered at top */}
                   <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white p-4 rounded-full border border-primary/20 shadow-xl">
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Banco_General_Rumi%C3%B1ahui_logo.svg/2560px-Banco_General_Rumi%C3%B1ahui_logo.svg.png"
+                      src={logoC48}
                       alt={currentCase.clientName}
                       className="h-12 w-auto object-contain"
                     />
@@ -101,7 +102,7 @@ export default function WorkSection() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                       {currentCase.results.metrics.map((metric, idx) => (
-                        <div key={idx} className="flex gap-3 items-start bg-neutral-900/50 p-4 rounded-lg border border-white/5">
+                        <div key={idx} className="flex gap-3 items-start bg-neutral-800 p-4 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
                           <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           <p className="text-sm md:text-base text-foreground/90 font-light">
                             <span className="font-bold text-primary block text-lg">{metric.value}</span> {metric.label}
