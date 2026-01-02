@@ -31,7 +31,7 @@ const teamMembers = [
     linkedin: '#',
   },
   {
-    name: 'Morph Web',
+    name: 'Gonzalo Quesada',
     image: 'https://c.animaapp.com/mi6dyn0qsz0esz/img/morph-web_1.jpeg',
     linkedin: '#',
   },
@@ -171,8 +171,7 @@ export default function TeamSection() {
 
                     {/* Overlay: Visible if active */}
                     <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-300 flex flex-col justify-end p-6 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                      <p className="text-white font-bold text-xl">{member.name}</p>
-                      <p className="text-white/80 text-sm mb-3">Experto Morph</p>
+                      <p className="text-white font-bold text-xl mb-3">{member.name}</p>
 
                       <div className="flex">
                         <a

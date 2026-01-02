@@ -1,5 +1,6 @@
 import { LinkedinIcon, InstagramIcon, YoutubeIcon } from 'lucide-react';
 import logo from '../../assets/Group.svg';
+import popitLogo from '../../assets/popit logo.png';
 
 export default function Footer() {
   const currentYear = 2025;
@@ -17,6 +18,11 @@ export default function Footer() {
                 src={logo}
                 alt="Morph Logo"
                 className="h-8 w-auto brightness-0 invert"
+              />
+              <img
+                src={popitLogo}
+                alt="PopIT Logo"
+                className="h-14 w-auto ml-[280px] brightness-0 invert"
               />
             </div>
             <p className="text-xs text-tertiary-foreground/80 font-light leading-relaxed">
