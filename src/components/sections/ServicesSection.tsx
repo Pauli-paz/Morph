@@ -229,7 +229,7 @@ export default function ServicesSection() {
                     </div>
                     <CardTitle className="text-2xl mb-2">{services[currentIndex].title}</CardTitle>
                   </CardHeader>
-                  <CardDescription className="pt-4 text-base text-muted-foreground leading-relaxed">
+                  <CardDescription className="pt-4 px-6 pb-6 text-base text-muted-foreground leading-relaxed text-left">
                     {services[currentIndex].description}
                   </CardDescription>
                 </Card>
