@@ -73,7 +73,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Morph Logo"
-            className={`h-full w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
+            className={`h-full w-auto transition-all duration-300 ${isScrolled ? 'brightness-0' : 'brightness-0 invert'}`}
           />
         </button>
 

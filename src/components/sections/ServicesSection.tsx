@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BriefcaseIcon, UsersIcon, ShieldIcon, LightbulbIcon, Zap, MonitorPlay } from 'lucide-react';
 import corporateVideo from '../../assets/corporate_games.mp4';
 
@@ -229,11 +229,9 @@ export default function ServicesSection() {
                     </div>
                     <CardTitle className="text-2xl mb-2">{services[currentIndex].title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="pt-4">
-                    <div className="text-base text-muted-foreground leading-relaxed">
-                      {services[currentIndex].description}
-                    </div>
-                  </CardContent>
+                  <CardDescription className="pt-4 px-6 pb-6 text-base text-muted-foreground leading-relaxed text-left">
+                    {services[currentIndex].description}
+                  </CardDescription>
                 </Card>
               </motion.div>
             </AnimatePresence>
