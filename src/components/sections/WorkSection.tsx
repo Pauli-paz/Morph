@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, HelpCircle, Puzzle, Trophy, CheckCircle2, Sprout } from 'lucide-react';
 import logoC48 from '../../assets/C48.svg';
 import logoC21 from '../../assets/C21.svg';
 import logoC32 from '../../assets/C32.svg';
@@ -38,25 +38,32 @@ const cases = [
         { value: '89%', label: 'de participación activa (promedio).' },
         { value: '85%', label: 'de efectividad percibida por los participantes y los stakeholders.' }
       ],
-      icon: Trophy
+      icon: Sprout
     }
   },
   {
     id: 'c21',
     client: 'C21',
-    clientName: 'Cliente Corporativo', // Placeholder if name isn't clear, but maybe I can infer or just leave generic until asked. User said "pone el logo C21". I'll use "Proyectos Regionales" or similar if no name provided? Or just "Century 21" if that's what C21 is? No, checking file list... C21.svg. Let's assume the name is hidden or generic relative to the file. I will use 'Cliente Corporativo' or just 'Empresa Regional' based on "7 Países". Actually, I'll check if the User meant the client name *is* the logo. I'll put "Cliente Confidencial" or similar, or just leave it blank?
-    // User said "agrega a esa seccion... estos datos... y pone el logo arriba C21". 
-    // I will use "Caso de Éxito" as subtitle and maybe "Transformación Regional" as title if name is missing? 
-    // Wait, let's look at the BGR one. clientName was "Banco General Rumiñahui". 
-    // I will use "Transformación Regional" as the client name placeholder for now, or just leave it blank if the logo speaks for itself.
-    // The previous code renders `currentCase.clientName`.
-    // I'll stick to a placeholder like "Proyecto Regional LATAM" given the "7 Países" metric.
-    clientName: 'Proyecto Regional LATAM',
+    clientName: 'Assist Card',
     logoFallback: 'C21',
-    brandingColor: 'text-cyan-600', // Optional custom color if we wanted, but sticking to existing design
+    brandingColor: 'text-cyan-600',
     logo: logoC21,
-    problem: { title: '', description: '', icon: HelpCircle }, // Not used in current layout
-    solution: { title: '', steps: [], icon: Puzzle }, // Not used
+    problem: {
+      title: 'EL PROBLEMA',
+      description: 'ASSIST CARD necesitaba realizar una revisión de los procesos dentro del área de administración y finanzas.',
+      icon: HelpCircle
+    },
+    solution: {
+      title: 'LA SOLUCIÓN',
+      steps: [
+        'Elaborar una matriz de oportunidades de mejora.',
+        'Mapeo de alto nivel del proceso integral del área.',
+        'Identificación de oportunidades de mejora según definición de impacto (alto, medio y bajo).',
+        'Trabajo focalizado en las oportunidades de mejora clasificadas en alto impacto.',
+        'Análisis de estimación de esfuerzo sobre Quick Win´s para RPA.'
+      ],
+      icon: Puzzle
+    },
     results: {
       title: 'Lo que logramos en 7 meses',
       metrics: [
@@ -66,20 +73,30 @@ const cases = [
         { value: '+50', label: 'Oportunidades mapeadas dentro de la cartera de necesidades para ser ejecutadas.' },
         { value: '1', label: 'video storytelling del camino recorrido en el proyecto.' }
       ],
-      icon: Trophy
+      icon: Sprout
     }
   },
   {
     id: 'c32',
     client: 'C32',
-    clientName: 'Banco Macro', // Assuming C32 is Banco Macro or similar, or just keeping it generic if unknown. User didn't specify name, just "logo C32". In the first case 'BGR' was Banco General Rumiñahui. Usually these codes match internal client IDs. I'll use "Cliente Corporativo" or similar placeholder if I can't guess. Wait, the metric says "desarrollado a medida para el Banco". So it's a Bank.
-    // I'll use "Entidad Bancaria" or "Banco Líder" as generic name, or "Banco Macro" if I want to guess, but safer to be generic or look for context.
-    // Actually, I'll stick to a descriptive title or just use "Cliente Bancario" for now.
-    clientName: 'Entidad Bancaria', // Placeholder
+    clientName: 'Supervielle',
     logoFallback: 'C32',
     logo: logoC32,
-    problem: { title: '', description: '', icon: HelpCircle },
-    solution: { title: '', steps: [], icon: Puzzle },
+    problem: {
+      title: 'EL PROBLEMA',
+      description: 'Supervielle buscaba desarrollar dentro de su organización una mentalidad de trabajo ágil que permita, más allá de las prácticas, generar vínculos y relaciones positivas para el desarrollo de productos y servicios desde el ingreso de las personas a la compañía.',
+      icon: HelpCircle
+    },
+    solution: {
+      title: 'LA SOLUCIÓN',
+      steps: [
+        'Se desarrolló un programa de onboarding a la agilidad.',
+        'El nivel 1 del programa de onboarding a la agilidad incorporó teoría mediante videos utilizando Motion Graphics de manera a introducir la mentalidad ágil.',
+        'Se logró la práctica de principios ágiles a través del desarrollo de un videojuego 100% a medida del banco.',
+        'Actualmente desarrollando el nivel 2 del programa de onboarding a la agilidad con el desarrollo de materiales para su plataforma de e-learning de manera a expandir las prácticas ágiles en la organización.'
+      ],
+      icon: Puzzle
+    },
     results: {
       title: 'Lo que logramos en 4 meses',
       metrics: [
@@ -89,18 +106,31 @@ const cases = [
         { value: '+90%', label: 'De la organización realizó el proceso de onboarding a la agilidad (nivel 1).' },
         { value: '+90%', label: 'De índice de satisfacción con los materiales educativos entregados.' }
       ],
-      icon: Trophy
+      icon: Sprout
     }
   },
   {
     id: 'c36',
     client: 'C36',
-    clientName: 'Cliente Industrial', // Placeholder. Logo C36. Image has pipes/industry background. "líderes preparados para liderar equipos remotos", "barreras generacionales".
-    clientName: 'Industria Energética', // Placeholder based on pipes background
+    clientName: 'Tecpetrol',
     logoFallback: 'C36',
     logo: logoC36,
-    problem: { title: '', description: '', icon: HelpCircle },
-    solution: { title: '', steps: [], icon: Puzzle },
+    problem: {
+      title: 'EL PROBLEMA',
+      description: 'Tecpetrol necesitaba de nuestro apoyo para mejorar las dinámicas de trabajo claves y acompañar relaciones entre las personas en el entorno virtual forzado por la pandemia. Adicionalmente las diferencias generadas por la diversidad de individuos de diferentes generaciones que forman parte de la empresa requerían de una estrategia para amalgamar equipos tras resultados; de manera a mejorar a su vez el rendimiento y establecer una cultura que permita la apertura y la adaptación al cambio. A su vez también necesitaban potenciar nuevos comportamientos de trabajo para mejorar el desempeño de las personas en entornos de trabajo complejos – sobre todo en pozo.',
+      icon: HelpCircle
+    },
+    solution: {
+      title: 'LA SOLUCIÓN',
+      steps: [
+        'Se realizó un análisis de la diversidad generacional de personas que forman parte de la empresa (Baby boomer, Gen X, Millenials, Centenials).',
+        'Se desarrollaron itinerarios de capacitación en un programa "New way of working".',
+        'Se creó un programa formación integral práctico/ vivencial sincrónico en talleres y asincrónico.',
+        'Se acompañó y potenció el aprendizaje a través de un programa de gamificación orientado a líderes.',
+        'Se trabajó en coaching de equipos virtuales orientados a resultados bajo prácticas ágilies.'
+      ],
+      icon: Puzzle
+    },
     results: {
       title: 'Lo que logramos en 8 meses',
       metrics: [
@@ -110,17 +140,31 @@ const cases = [
         { value: '8', label: 'proyectos estratégicos aplicando metodologías híbridas.' },
         { value: '92%', label: 'satisfacción NPS' }
       ],
-      icon: Trophy
+      icon: Sprout
     }
   },
   {
     id: 'c59',
     client: 'C59',
-    clientName: 'Industria Aeronáutica', // Placeholder based on airplane wing background
+    clientName: 'Aeropuertos Uruguay',
     logoFallback: 'C59',
     logo: logoC59,
-    problem: { title: '', description: '', icon: HelpCircle },
-    solution: { title: '', steps: [], icon: Puzzle },
+    problem: {
+      title: 'EL PROBLEMA',
+      description: 'Aeropuertos Uruguay necesitaba asegurar un cambio cultural que iniciaba con medir la viabilidad de la implementación de agilidad en proyectos clave de la corporación y en la organización de manera integral. La visión de cambio y su interrelación con la estrategia de negocio debía ser parte del alcance (a los fines de asegurar un modelo alineado a la estrategia).',
+      icon: HelpCircle
+    },
+    solution: {
+      title: 'LA SOLUCIÓN',
+      steps: [
+        'Realizar un relevamiento y análisis del nivel de madurez y adaptabilidad a la agilidad en distintos sectores de la empresa.',
+        'Comprender y contrastar aspectos culturales de manera a identificar las brechas y generar propuestas adecuadas para el cambio que buscaba la corporación.',
+        'Realizar un análisis de nuevos proyectos y proyectos en marcha para la implementación de marcos ágiles dentro de estos.',
+        'Instalar coaches ágiles para trabajar en los diferentes equipos de la corporación.',
+        'Diseñar y ejecutar un plan de gestión de cambio orientado a objetivos estratégicos.'
+      ],
+      icon: Puzzle
+    },
     results: {
       title: 'Lo que logramos en 5 meses',
       metrics: [
@@ -130,7 +174,7 @@ const cases = [
         { value: '1', label: 'Tablero OKR alineado a la evolución y targets de negocio.' },
         { value: '+ 20', label: 'líderes preparados para asegurar contextos ágiles orientados al negocio.' }
       ],
-      icon: Trophy
+      icon: Sprout
     }
   }
 ];
@@ -149,12 +193,13 @@ export default function WorkSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 8000); // Slower interval for more reading time
 
     return () => clearInterval(timer);
-  }, [currentIndex]); // Re-run effect when index changes to reset timer prevents rapid skipping if user clicks manually
+  }, [currentIndex]);
 
   const currentCase = cases[currentIndex];
+  const isDetailedView = currentCase.problem && currentCase.problem.title !== '';
 
   return (
     <section id="work" className="py-20 md:py-32 bg-neutral relative overflow-hidden">
@@ -175,67 +220,105 @@ export default function WorkSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5 }}
-              className="bg-card/50 backdrop-blur-sm border border-white/5 rounded-3xl p-6 md:p-12 shadow-2xl"
+              className={`backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden bg-white/40 border border-white/20 lg:min-h-[600px] flex flex-col justify-center`}
             >
-              {/* Content - Single Card Focused on Results */}
-              <div className="max-w-4xl mx-auto">
-                <div className="h-full border border-primary/10 rounded-2xl p-8 md:p-12 bg-white shadow-2xl relative overflow-hidden">
-                  {/* Decorative background accent */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="relative z-10">
+                {/* Logo Section */}
+                <div className="flex justify-end mb-8 md:mb-12">
+                  <img
+                    src={currentCase.logo}
+                    alt={currentCase.clientName}
+                    className="h-16 md:h-20 w-auto object-contain mix-blend-multiply"
+                  />
+                </div>
 
-                  <div className="relative z-10 flex flex-col items-center">
-                    {/* Logo - Natural flow - Restored without shadow and stroke */}
-                    <div className="bg-white p-4 rounded-full mb-8">
-                      <img
-                        src={currentCase.logo}
-                        alt={currentCase.clientName}
-                        className="h-16 w-auto object-contain"
-                      />
+                {isDetailedView ? (
+                  // 3-Column Detailed Layout
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 text-left">
+
+                    {/* Problem Column */}
+                    <div className="flex flex-col items-center text-center lg:items-center lg:text-center">
+                      <div className="w-24 h-24 rounded-full bg-slate-800 flex items-center justify-center mb-6 shadow-lg border-4 border-slate-100 border-dashed">
+                        <HelpCircle className="w-10 h-10 text-white" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-lg uppercase tracking-widest text-slate-500 font-medium mb-6">
+                        {currentCase.problem.title}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base text-center">
+                        {currentCase.problem.description}
+                      </p>
                     </div>
 
+                    {/* Solution Column */}
+                    <div className="flex flex-col items-center text-center lg:items-center lg:text-center">
+                      <div className="w-24 h-24 rounded-full bg-slate-800 flex items-center justify-center mb-6 shadow-lg border-4 border-slate-100 border-dashed">
+                        <Puzzle className="w-10 h-10 text-white" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-lg uppercase tracking-widest text-slate-500 font-medium mb-6">
+                        {currentCase.solution.title}
+                      </h3>
+                      <ol className="text-gray-700 leading-relaxed text-sm md:text-base text-justify list-decimal pl-4 space-y-3">
+                        {currentCase.solution.steps.map((step, idx) => (
+                          <li key={idx} className="pl-2">{step}</li>
+                        ))}
+                      </ol>
+                    </div>
 
-                    <h3 className="hidden">
-                      {currentCase.clientName}
-                    </h3>
-
-                    {/* Tree Icon Header Element (as per user image) */}
-                    <div className="w-20 h-20 rounded-full bg-yellow-400/20 border-2 border-yellow-400 flex items-center justify-center mb-6 shadow-sm">
-                      <div className="text-yellow-600">
-                        {/* Simple tree/growth icon using lucide */}
-                        <Trophy className="w-10 h-10" />
+                    {/* Results Column */}
+                    <div className="relative mt-8 lg:mt-0">
+                      <div className="absolute inset-0 border-2 border-yellow-400 border-dashed rounded-3xl -m-4 pointer-events-none" />
+                      <div className="flex flex-col items-center text-center lg:items-center">
+                        <div className="w-24 h-24 rounded-full bg-yellow-400 flex items-center justify-center mb-6 shadow-lg relative z-10">
+                          {(() => {
+                            const IconComp = currentCase.results.icon;
+                            return <IconComp className="w-12 h-12 text-slate-900" strokeWidth={1.5} />;
+                          })()}
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6 max-w-xs leading-tight">
+                          {currentCase.results.title}
+                        </h3>
+                        <div className="space-y-3 w-full text-left">
+                          {currentCase.results.metrics.map((metric, idx) => (
+                            <div key={idx} className="flex gap-3 items-start">
+                              <CheckCircle2 className="w-5 h-5 text-cyan-500 mt-1 shrink-0" />
+                              <div className="text-slate-700 text-sm md:text-base leading-snug">
+                                <span className="font-bold text-cyan-600 text-lg mr-1">{metric.value}</span>
+                                {metric.label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
-                    <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
-                      {currentCase.results.title}
-                    </h4>
-
-                    {/* Vertical List */}
-                    <div className="w-full max-w-2xl mx-auto space-y-4">
-                      {currentCase.results.metrics.map((metric, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
-                          viewport={{ once: true }}
-                          className="flex gap-4 items-start p-2"
-                        >
-                          <div className="mt-1 shrink-0">
-                            <CheckCircle2 className="w-6 h-6 text-cyan-500" />
+                  </div>
+                ) : (
+                  // Fallback: Results Focused Layout (Original style for other cases)
+                  <div className="max-w-4xl mx-auto">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <Trophy className="w-10 h-10 text-primary" />
+                      </div>
+                      <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10">
+                        {currentCase.results.title}
+                      </h4>
+                      <div className="w-full max-w-2xl mx-auto space-y-4 text-left">
+                        {currentCase.results.metrics.map((metric, idx) => (
+                          <div key={idx} className="flex gap-4 items-start p-2">
+                            <CheckCircle2 className="w-6 h-6 text-cyan-500 mt-1 shrink-0" />
+                            <p className="text-lg text-gray-700 font-light leading-snug">
+                              <span className="font-bold text-cyan-600 text-xl">{metric.value}</span> {metric.label}
+                            </p>
                           </div>
-                          <p className="text-lg text-gray-700 font-light leading-snug text-left">
-                            <span className="font-bold text-cyan-600 text-xl">{metric.value}</span> {metric.label}
-                          </p>
-                        </motion.div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
